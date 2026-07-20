@@ -16,8 +16,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["chandrakantsatpute2018@gmail.com"],
-    action: "mailto:chandrakantsatpute2018@gmail.com",
+    details: ["info@kalyanifinance.com"],
+    action: "mailto:info@kalyanifinance.com",
     actionText: "Send Email",
   },
   {
