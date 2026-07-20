@@ -52,7 +52,7 @@ export function WhyChooseUsSection() {
               Why Choose Us
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Your Trusted Financial Partner Since 2023
+              Your Trusted Financial Partner 
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               At KalyaniFinance, we believe in making financial services accessible, 
@@ -64,7 +64,7 @@ export function WhyChooseUsSection() {
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-sm font-medium">
                 <Shield className="w-4 h-4 text-primary" />
-                DSA 
+                 Channel Partner
               </div>
               
             </div>
