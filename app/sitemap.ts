@@ -77,7 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
-
   return [
     ...staticPages,
     ...loanPages,
