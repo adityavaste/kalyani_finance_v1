@@ -12,22 +12,23 @@ const navLinks = [
     name: "Loans", 
     href: "/loans",
     submenu: [
-      { name: "Home Loan", href: "/loans#home-loan" },
-      { name: "Car Loan", href: "/loans#car-loan" },
-      { name: "Personal Loan", href: "/loans#personal-loan" },
-      { name: "Business Loan", href: "/loans#business-loan" },
-      { name: "Education Loan", href: "/loans#education-loan" },
-      { name: "Gold Loan", href: "/loans#gold-loan" },
+      { name: "Home Loan", href: "/loans/home-loan" },
+      { name: "Car Loan", href: "/loans/car-loan" },
+      { name: "Personal Loan", href: "/loans/personal-loan" },
+      { name: "Business Loan", href: "/loans/business-loan" },
+      { name: "Education Loan", href: "/loans/education-loan" },
+      { name: "Gold Loan", href: "/loans/gold-loan" },
+      { name: "Loan Against Property", href: "/loans/loan-against-property" },
     ]
   },
   { 
     name: "Insurance", 
     href: "/insurance",
     submenu: [
-      { name: "Health Insurance", href: "/insurance#health" },
-      { name: "Car Insurance", href: "/insurance#car" },
-      { name: "Life Insurance", href: "/insurance#life" },
-      { name: "Travel Insurance", href: "/insurance#travel" },
+      { name: "Health Insurance", href: "/insurance/health-insurance" },
+      { name: "Car Insurance", href: "/insurance/car-insurance" },
+      { name: "Life Insurance", href: "/insurance/life-insurance" },
+      { name: "Travel Insurance", href: "/insurance/travel-insurance" },
     ]
   },
   { name: "EMI Calculator", href: "/emi-calculator" },
@@ -97,7 +98,7 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-1 w-48 bg-card rounded-xl shadow-xl border border-border overflow-hidden"
+                        className="absolute top-full left-0 mt-1 w-56 bg-card rounded-xl shadow-xl border border-border overflow-hidden"
                       >
                         {link.submenu.map((sublink) => (
                           <Link
@@ -118,7 +119,7 @@ export function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:+919999999999"
+                href="tel:+917620838449"
                 className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4" />
@@ -152,7 +153,7 @@ export function Navbar() {
             className="fixed inset-0 z-40 lg:hidden"
           >
             <div className="absolute inset-0 bg-foreground/20" onClick={() => setIsMobileMenuOpen(false)} />
-            <div className="absolute right-0 top-0 bottom-0 w-80 max-w-full bg-card shadow-xl">
+            <div className="absolute right-0 top-0 bottom-0 w-80 max-w-full bg-card shadow-xl overflow-y-auto">
               <div className="pt-20 pb-6 px-6">
                 <div className="flex flex-col gap-1">
                   {navLinks.map((link) => (
@@ -183,11 +184,11 @@ export function Navbar() {
                 </div>
                 <div className="mt-6 pt-6 border-t border-border">
                   <a
-                    href="tel:+919999999999"
+                    href="tel:+917620838449"
                     className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-foreground/80"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>+91 99999 99999</span>
+                    <span>+91 7620838449</span>
                   </a>
                   <Button className="w-full mt-3" asChild>
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>

@@ -21,6 +21,7 @@ const insuranceTypes = [
       "Free annual health checkup",
     ],
     color: "bg-red-500/10 text-red-600 border-red-500/20",
+    actionLink: "/insurance/health-insurance",
   },
   {
     id: "car",
@@ -37,6 +38,7 @@ const insuranceTypes = [
       "Cashless repairs at 5000+ garages",
     ],
     color: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+    actionLink: "/insurance/car-insurance",
   },
   {
     id: "bike",
@@ -53,6 +55,7 @@ const insuranceTypes = [
       "Easy claim process",
     ],
     color: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+    actionLink: "/insurance/bike-insurance",
   },
   {
     id: "life",
@@ -69,6 +72,7 @@ const insuranceTypes = [
       "Premium waiver options",
     ],
     color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+    actionLink: "/insurance/life-insurance",
   },
   {
     id: "travel",
@@ -85,6 +89,7 @@ const insuranceTypes = [
       "24/7 worldwide assistance",
     ],
     color: "bg-violet-500/10 text-violet-600 border-violet-500/20",
+    actionLink: "/insurance/travel-insurance",
   },
   {
     id: "family",
@@ -101,6 +106,7 @@ const insuranceTypes = [
       "Domiciliary treatment",
     ],
     color: "bg-pink-500/10 text-pink-600 border-pink-500/20",
+    actionLink: "/insurance/family-floater",
   },
   {
     id: "business",
@@ -117,6 +123,7 @@ const insuranceTypes = [
       "Cyber insurance",
     ],
     color: "bg-slate-500/10 text-slate-600 border-slate-500/20",
+    actionLink: "/insurance/business-insurance",
   },
 ]
 
@@ -174,7 +181,7 @@ export function InsuranceTypes() {
                 </div>
 
                 {/* Right - Stats & CTA */}
-                <div className="bg-accent/50 rounded-2xl p-6">
+                <div className="bg-accent/50 rounded-2xl p-6 flex flex-col justify-between">
                   <div className="space-y-4 mb-6">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Coverage</p>
@@ -185,9 +192,14 @@ export function InsuranceTypes() {
                       <p className="text-lg font-semibold text-foreground">{insurance.premium}</p>
                     </div>
                   </div>
-                  <Button className="w-full" asChild>
-                    <Link href="/contact">Get Quote</Link>
-                  </Button>
+                  <div className="space-y-3">
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href={insurance.actionLink}>View Details</Link>
+                    </Button>
+                    <Button className="w-full" asChild>
+                      <Link href="/contact">Get Quote</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>

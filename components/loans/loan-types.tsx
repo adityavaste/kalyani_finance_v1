@@ -22,6 +22,7 @@ const loanTypes = [
       "Balance transfer facility",
     ],
     color: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+    actionLink: "/loans/home-loan",
   },
   {
     id: "car-loan",
@@ -39,6 +40,7 @@ const loanTypes = [
       "Used car loans available",
     ],
     color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+    actionLink: "/loans/car-loan",
   },
   {
     id: "personal-loan",
@@ -56,6 +58,7 @@ const loanTypes = [
       "Quick disbursal",
     ],
     color: "bg-violet-500/10 text-violet-600 border-violet-500/20",
+    actionLink: "/loans/personal-loan",
   },
   {
     id: "business-loan",
@@ -73,6 +76,7 @@ const loanTypes = [
       "Equipment financing",
     ],
     color: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+    actionLink: "/loans/business-loan",
   },
   {
     id: "education-loan",
@@ -90,6 +94,7 @@ const loanTypes = [
       "Study abroad options",
     ],
     color: "bg-rose-500/10 text-rose-600 border-rose-500/20",
+    actionLink: "/loans/education-loan",
   },
   {
     id: "gold-loan",
@@ -107,6 +112,7 @@ const loanTypes = [
       "No processing fee",
     ],
     color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20",
+    actionLink: "/loans/gold-loan",
   },
   {
     id: "lap",
@@ -124,6 +130,7 @@ const loanTypes = [
       "Flexible end-use",
     ],
     color: "bg-cyan-500/10 text-cyan-600 border-cyan-500/20",
+    actionLink: "/loans/loan-against-property",
   },
 ]
 
@@ -181,7 +188,7 @@ export function LoanTypes() {
                 </div>
 
                 {/* Right - Stats & CTA */}
-                <div className="bg-accent/50 rounded-2xl p-6">
+                <div className="bg-accent/50 rounded-2xl p-6 flex flex-col justify-between">
                   <div className="space-y-4 mb-6">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Interest Rate</p>
@@ -196,9 +203,16 @@ export function LoanTypes() {
                       <p className="text-lg font-semibold text-foreground">{loan.tenure}</p>
                     </div>
                   </div>
-                  <Button className="w-full" asChild>
-                    <Link href="/contact">Apply Now</Link>
-                  </Button>
+                  <div className="space-y-3">
+                    {loan.actionLink && (
+                      <Button variant="outline" className="w-full" asChild>
+                        <Link href={loan.actionLink}>View Details</Link>
+                      </Button>
+                    )}
+                    <Button className="w-full" asChild>
+                      <Link href="/contact">Apply Now</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </motion.div>
