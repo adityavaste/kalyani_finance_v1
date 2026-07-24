@@ -215,9 +215,9 @@ export const metadata: Metadata = {
     address: false,
   },
 
-  verification: {
-    // google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION",
-  },
+ verification: {
+  google: "googlee04705b5750b0bb6.html",
+},
 };
 export default function RootLayout({
   children,
