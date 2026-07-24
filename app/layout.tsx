@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-inter'
@@ -226,6 +226,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
+    <GoogleAnalytics gaId="G-9ZE60HVBLJ" />
       <body className={`${inter.variable} font-sans antialiased`}>
 
   <script
