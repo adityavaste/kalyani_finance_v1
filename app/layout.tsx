@@ -216,7 +216,7 @@ export const metadata: Metadata = {
   },
 
  verification: {
-  google: "googlee04705b5750b0bb6.html",
+  google: "hdOxIPGbMUN69vrjATHZrmX_cbnt_ZtFJXhCXn8irSg"
 },
 };
 export default function RootLayout({
