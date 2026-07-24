@@ -95,15 +95,7 @@ export default function CarLoanPage() {
 ))}
 
       <div className="min-h-screen bg-slate-50/50 text-slate-900 pb-24 pt-20">
-        
-        {/* Navigation Breadcrumb Bar */}
-        <div className="bg-white/80 border-b border-slate-200/80 sticky top-16 lg:top-20 z-40 py-3 backdrop-blur-md mb-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link href="/loans" className="inline-flex items-center text-xs font-bold text-slate-600 hover:text-blue-600 transition-colors">
-              <ArrowLeft className="w-3.5 h-3.5 mr-1.5" /> Back to Loan Options
-            </Link>
-          </div>
-        </div>
+      
 
         {/* Hero Banner Section */}
         <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white py-20 lg:py-28 mx-4 sm:mx-6 lg:mx-8 rounded-3xl mb-12 shadow-xl">
