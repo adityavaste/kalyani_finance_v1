@@ -293,7 +293,7 @@ export function ContactFormSection() {
                 </div>
                 <div>
                   <div className="text-xs text-background/50">Call us anytime</div>
-                  <div className="text-sm font-semibold text-background">+91 99999 99999</div>
+                  <div className="text-sm font-semibold text-background">+91 7620838449</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-background/70">
@@ -302,7 +302,8 @@ export function ContactFormSection() {
                 </div>
                 <div>
                   <div className="text-xs text-background/50">Email us</div>
-                  <div className="text-sm font-semibold text-background">help@kalyanifinance.com</div>
+                  <div className="text-sm font-semibold text-background">info@kalyanifinance.com
+</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-background/70">
