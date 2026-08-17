@@ -88,8 +88,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹1,200Cr+", label: "Education Loans Given" },
-  { value: "15,000+", label: "Students Funded" },
+  
   { value: "25+", label: "Countries Covered" },
   { value: "100%", label: "Expense Coverage" },
 ]
@@ -169,7 +168,7 @@ export default function EducationLoanPage() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-sm text-slate-400 mt-0.5">Trusted by 15,000+ Students & Parents</p>
+                    <p className="text-sm text-slate-400 mt-0.5">Trusted by tudents & Parents</p>
                   </div>
                 </div>
               </div>

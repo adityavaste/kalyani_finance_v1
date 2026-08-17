@@ -89,8 +89,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹3,000Cr+", label: "Property Loans Disbursed" },
-  { value: "8,000+", label: "Properties Financed" },
+  
   { value: "75%", label: "Max LTV Ratio" },
   { value: "15 Yrs", label: "Longest Tenure" },
 ]
@@ -165,7 +164,7 @@ export default function LoanAgainstPropertyPage() {
                         <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">Trusted by 8,000+ Property Owners</p>
+                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">Trusted by Property Owners</p>
                   </div>
                 </div>
               </div>

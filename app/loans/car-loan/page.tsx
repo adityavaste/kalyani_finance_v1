@@ -89,8 +89,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹800Cr+", label: "Car Loans Disbursed" },
-  { value: "25,000+", label: "Cars Financed" },
+  
   { value: "Same Day", label: "Fastest Approval" },
   { value: "100%", label: "On-Road Funding" },
 ]
@@ -170,7 +169,7 @@ export default function CarLoanPage() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-sm text-slate-400 mt-0.5">Trusted by 25,000+ Car Buyers</p>
+                    <p className="text-sm text-slate-400 mt-0.5">Trusted by Car Buyers</p>
                   </div>
                 </div>
               </div>
