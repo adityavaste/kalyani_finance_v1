@@ -68,8 +68,8 @@ const features = [
 ]
 
 const trustBadges = [
-  { icon: Shield, label: "RBI Compliant", color: "text-emerald-500" },
-  { icon: Award, label: "IRDAI Licensed", color: "text-blue-500" },
+  { icon: Shield, label: "Channel partner", color: "text-emerald-500" },
+  
   { icon: Star, label: "4.9/5 Rating", color: "text-amber-500" },
   { icon: Users, label: "500+ Partners", color: "text-violet-500" },
 ]

@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { 
   Calculator, ArrowRight, TrendingDown, Wallet, 
-  PieChart, Clock, BadgePercent, CheckCircle2,
-  Home, Car, User, Briefcase, Sparkles, Download
+  Clock, BadgePercent, 
+  Home, Car, User, Briefcase, Sparkles
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -66,12 +66,10 @@ function DonutChart({ principal, interest }: { principal: number; interest: numb
   const interestOffset = circumference - (interestPct / 100) * circumference
 
   return (
-    <div className="relative w-48 h-48 mx-auto">
+    <div className="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto">
       <svg className="w-full h-full -rotate-90" viewBox="0 0 200 200">
-        {/* Background circle */}
         <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="16" className="text-accent/30" />
         
-        {/* Interest arc */}
         <motion.circle
           cx="100"
           cy="100"
@@ -86,7 +84,6 @@ function DonutChart({ principal, interest }: { principal: number; interest: numb
           transition={{ duration: 1, ease: "easeOut" }}
         />
         
-        {/* Principal arc */}
         <motion.circle
           cx="100"
           cy="100"
@@ -113,10 +110,9 @@ function DonutChart({ principal, interest }: { principal: number; interest: numb
         </defs>
       </svg>
       
-      {/* Center Text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-xs text-muted-foreground font-medium">Total Payable</span>
-        <span className="text-lg font-bold text-foreground">{formatCompact(total)}</span>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-2">
+        <span className="text-[11px] sm:text-xs text-muted-foreground font-medium">Total Payable</span>
+        <span className="text-base sm:text-lg font-bold text-foreground truncate max-w-full">{formatCompact(total)}</span>
       </div>
     </div>
   )
@@ -135,22 +131,20 @@ function RangeSlider({
   
   return (
     <div className="space-y-3">
-      <div className="flex justify-between items-center">
-        <label className="text-sm font-medium text-foreground">{label}</label>
+      <div className="flex justify-between items-center gap-2">
+        <label className="text-xs sm:text-sm font-medium text-foreground">{label}</label>
         <motion.span 
           key={displayValue}
           initial={{ scale: 1.2, color: "hsl(var(--primary))" }}
           animate={{ scale: 1, color: "hsl(var(--foreground))" }}
-          className="text-sm font-bold px-3 py-1 rounded-full bg-primary/10 text-primary"
+          className="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary whitespace-nowrap"
         >
           {displayValue}
         </motion.span>
       </div>
       
       <div className="relative h-6 flex items-center">
-        {/* Track Background */}
         <div className="absolute inset-0 h-2 rounded-full bg-accent overflow-hidden">
-          {/* Fill */}
           <motion.div 
             className={`h-full bg-gradient-to-r ${gradient}`}
             initial={false}
@@ -159,7 +153,6 @@ function RangeSlider({
           />
         </div>
         
-        {/* Input */}
         <input
           type="range"
           min={min}
@@ -170,7 +163,6 @@ function RangeSlider({
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
         />
         
-        {/* Thumb */}
         <motion.div
           className="absolute w-5 h-5 rounded-full bg-white shadow-lg border-2 border-primary pointer-events-none z-0"
           initial={false}
@@ -179,7 +171,7 @@ function RangeSlider({
         />
       </div>
       
-      <div className="flex justify-between text-xs text-muted-foreground font-medium">
+      <div className="flex justify-between text-[11px] sm:text-xs text-muted-foreground font-medium">
         <span>{formatCompact(min)}</span>
         <span>{formatCompact(max)}</span>
       </div>
@@ -193,8 +185,7 @@ export function EmiCalculatorPreview() {
   const [tenure, setTenure] = useState(240)
   const [activePreset, setActivePreset] = useState(0)
 
-  // EMI Calculation
-  const { emi, totalAmount, totalInterest, principalPct, interestPct } = useMemo(() => {
+  const { emi, totalAmount, totalInterest } = useMemo(() => {
     const monthlyRate = interestRate / 12 / 100
     const emi = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, tenure) / (Math.pow(1 + monthlyRate, tenure) - 1)
     const totalAmount = emi * tenure
@@ -203,8 +194,6 @@ export function EmiCalculatorPreview() {
       emi,
       totalAmount,
       totalInterest,
-      principalPct: (loanAmount / totalAmount) * 100,
-      interestPct: (totalInterest / totalAmount) * 100,
     }
   }, [loanAmount, interestRate, tenure])
 
@@ -217,10 +206,9 @@ export function EmiCalculatorPreview() {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 bg-muted/30 overflow-hidden">
-      {/* Background */}
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-muted/30 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] lg:w-[800px] h-[300px] sm:h-[600px] lg:h-[800px] bg-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,33 +218,33 @@ export function EmiCalculatorPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
           >
-            <Calculator className="w-4 h-4" />
+            <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Smart Financial Tools
           </motion.div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-2">
             Plan Your EMIs{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               Before You Apply
             </span>
           </h2>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Use our interactive calculator to find the perfect loan amount and tenure. 
             See exactly how much you'll pay — no surprises.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-12 items-start">
           
           {/* Left - Calculator */}
           <motion.div
@@ -264,23 +252,23 @@ export function EmiCalculatorPreview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-3"
+            className="lg:col-span-3 w-full"
           >
-            <div className="bg-card rounded-3xl border border-border/50 shadow-2xl shadow-primary/5 overflow-hidden">
+            <div className="bg-card rounded-2xl sm:rounded-3xl border border-border/50 shadow-xl sm:shadow-2xl shadow-primary/5 overflow-hidden">
               {/* Header */}
-              <div className="p-6 lg:p-8 border-b border-border/50 bg-gradient-to-r from-card to-card/95">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
-                    <Calculator className="w-6 h-6 text-white" />
+              <div className="p-4 sm:p-6 lg:p-8 border-b border-border/50 bg-gradient-to-r from-card to-card/95">
+                <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg flex-shrink-0">
+                    <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground text-lg">EMI Calculator</h3>
-                    <p className="text-sm text-muted-foreground">Adjust sliders to see your monthly payment</p>
+                    <h3 className="font-bold text-foreground text-base sm:text-lg">EMI Calculator</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Adjust sliders to see your monthly payment</p>
                   </div>
                 </div>
 
-                {/* Loan Type Presets */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {/* Loan Type Presets - Mobile Optimized Grid */}
+                <div className="grid grid-cols-2 gap-2">
                   {loanPresets.map((preset, index) => (
                     <motion.button
                       key={preset.label}
@@ -288,22 +276,22 @@ export function EmiCalculatorPreview() {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => applyPreset(index)}
                       className={`
-                        flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium transition-all
+                        flex items-center justify-center sm:justify-start gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all text-center sm:text-left
                         ${activePreset === index 
-                          ? `bg-gradient-to-r ${preset.color} text-white shadow-lg` 
+                          ? `bg-gradient-to-r ${preset.color} text-white shadow-md sm:shadow-lg` 
                           : 'bg-accent/50 text-muted-foreground hover:bg-accent hover:text-foreground'
                         }
                       `}
                     >
-                      <preset.icon className="w-4 h-4" />
-                      {preset.label}
+                      <preset.icon className="w-4 h-4 flex-shrink-0" />
+                      <span className="truncate">{preset.label}</span>
                     </motion.button>
                   ))}
                 </div>
               </div>
 
               {/* Sliders */}
-              <div className="p-6 lg:p-8 space-y-8">
+              <div className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
                 <RangeSlider
                   label="Loan Amount"
                   value={loanAmount}
@@ -332,43 +320,46 @@ export function EmiCalculatorPreview() {
                   max={360}
                   step={6}
                   onChange={setTenure}
-                  displayValue={`${Math.floor(tenure / 12)} Yrs ${tenure % 12} Mo`}
+                  displayValue={`${Math.floor(tenure / 12)}Y ${tenure % 12}M`}
                   gradient="from-violet-500 to-purple-400"
                 />
               </div>
 
               {/* Results Bar */}
-              <div className="p-6 lg:p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-t border-border/50">
-                <div className="grid grid-cols-3 gap-4 lg:gap-8">
-                  <div className="text-center">
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Monthly EMI</p>
+              <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-t border-border/50">
+                {/* Responsive Summary Layout */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pb-6 border-b border-border/50 sm:border-b-0 sm:pb-0">
+                  <div className="text-center sm:text-left">
+                    <p className="text-[11px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Monthly EMI</p>
                     <motion.p 
                       key={emi}
                       initial={{ scale: 1.1, color: "hsl(var(--primary))" }}
                       animate={{ scale: 1, color: "hsl(var(--foreground))" }}
-                      className="text-xl lg:text-2xl font-bold"
+                      className="text-lg sm:text-xl lg:text-2xl font-bold"
                     >
                       <AnimatedNumber value={emi} formatter={formatCurrency} />
                     </motion.p>
                   </div>
-                  <div className="text-center border-x border-border/50">
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Total Interest</p>
+                  
+                  <div className="text-center sm:border-x sm:border-border/50 sm:px-4">
+                    <p className="text-[11px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Total Interest</p>
                     <motion.p 
                       key={totalInterest}
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
-                      className="text-xl lg:text-2xl font-bold text-amber-500"
+                      className="text-lg sm:text-xl lg:text-2xl font-bold text-amber-500"
                     >
                       <AnimatedNumber value={totalInterest} formatter={formatCurrency} />
                     </motion.p>
                   </div>
-                  <div className="text-center">
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Total Payable</p>
+                  
+                  <div className="text-center sm:text-right">
+                    <p className="text-[11px] sm:text-xs text-muted-foreground font-medium uppercase tracking-wider mb-1">Total Payable</p>
                     <motion.p 
                       key={totalAmount}
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
-                      className="text-xl lg:text-2xl font-bold text-foreground"
+                      className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground"
                     >
                       <AnimatedNumber value={totalAmount} formatter={formatCurrency} />
                     </motion.p>
@@ -382,14 +373,14 @@ export function EmiCalculatorPreview() {
                   viewport={{ once: true }}
                   className="mt-6"
                 >
-                  <Button size="lg" asChild className="w-full gap-2 text-lg py-6 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
+                  <Button size="lg" asChild className="w-full gap-2 text-sm sm:text-base py-5 sm:py-6 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
                     <Link href={`/contact?amount=${loanAmount}&emi=${Math.round(emi)}&type=${loanPresets[activePreset].label}`}>
-                      <Sparkles className="w-5 h-5" />
-                      Apply for This Loan — Get Best Rates
-                      <ArrowRight className="w-5 h-5" />
+                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                      <span className="truncate">Apply for This Loan — Get Best Rates</span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                     </Link>
                   </Button>
-                  <p className="text-center text-xs text-muted-foreground mt-3">
+                  <p className="text-center text-[11px] sm:text-xs text-muted-foreground mt-3">
                     No impact on CIBIL score • Approval in 24 hours
                   </p>
                 </motion.div>
@@ -403,11 +394,11 @@ export function EmiCalculatorPreview() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 space-y-6 w-full"
           >
             {/* Chart Card */}
-            <div className="bg-card rounded-3xl border border-border/50 p-6 lg:p-8 shadow-xl">
-              <h4 className="text-sm font-semibold text-foreground mb-6 text-center uppercase tracking-wider">
+            <div className="bg-card rounded-2xl sm:rounded-3xl border border-border/50 p-5 sm:p-6 lg:p-8 shadow-xl">
+              <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-6 text-center uppercase tracking-wider">
                 Payment Breakdown
               </h4>
               
@@ -415,25 +406,25 @@ export function EmiCalculatorPreview() {
               
               <div className="mt-6 space-y-3">
                 <div className="flex items-center justify-between p-3 rounded-xl bg-primary/5 border border-primary/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-secondary" />
-                    <span className="text-sm font-medium text-foreground">Principal Amount</span>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-secondary flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-foreground">Principal Amount</span>
                   </div>
-                  <span className="text-sm font-bold text-foreground">{formatCurrency(loanAmount)}</span>
+                  <span className="text-xs sm:text-sm font-bold text-foreground truncate max-w-[120px] sm:max-w-none">{formatCurrency(loanAmount)}</span>
                 </div>
                 
                 <div className="flex items-center justify-between p-3 rounded-xl bg-amber-500/5 border border-amber-500/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-amber-500 to-red-500" />
-                    <span className="text-sm font-medium text-foreground">Interest Payable</span>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-3 h-3 rounded-full bg-gradient-to-r from-amber-500 to-red-500 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-foreground">Interest Payable</span>
                   </div>
-                  <span className="text-sm font-bold text-amber-600">{formatCurrency(totalInterest)}</span>
+                  <span className="text-xs sm:text-sm font-bold text-amber-600 truncate max-w-[120px] sm:max-w-none">{formatCurrency(totalInterest)}</span>
                 </div>
               </div>
             </div>
 
             {/* Info Cards */}
-            <div className="grid gap-4">
+            <div className="grid gap-3 sm:gap-4">
               {[
                 { icon: TrendingDown, title: "Save on Interest", desc: "Increase EMI by 10% to save lakhs in interest", color: "text-emerald-500" },
                 { icon: Wallet, title: "Affordability Check", desc: "Your EMI should be less than 40% of monthly income", color: "text-blue-500" },
@@ -445,14 +436,14 @@ export function EmiCalculatorPreview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border/50 hover:border-primary/20 transition-colors"
+                  className="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-card border border-border/50 hover:border-primary/20 transition-colors"
                 >
-                  <div className={`w-10 h-10 rounded-xl bg-accent flex items-center justify-center flex-shrink-0`}>
-                    <item.icon className={`w-5 h-5 ${item.color}`} />
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent flex items-center justify-center flex-shrink-0`}>
+                    <item.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.color}`} />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-foreground">{item.title}</h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                    <h4 className="text-xs sm:text-sm font-bold text-foreground">{item.title}</h4>
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -466,11 +457,11 @@ export function EmiCalculatorPreview() {
               transition={{ delay: 0.7 }}
               className="p-4 rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/10 text-center"
             >
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <BadgePercent className="w-5 h-5 text-primary" />
-                <span className="text-sm font-bold text-foreground">Lowest Rate Guarantee</span>
+              <div className="flex items-center justify-center gap-2 mb-1.5">
+                <BadgePercent className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-bold text-foreground">Lowest Rate Guarantee</span>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-[11px] sm:text-xs text-muted-foreground">
                 Found a lower rate elsewhere? We'll match it and reduce it by 0.5%
               </p>
             </motion.div>

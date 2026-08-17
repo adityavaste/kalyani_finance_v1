@@ -17,7 +17,7 @@ const insuranceCategories = [
     description: "Comprehensive health coverage for you and your family with 10,000+ cashless hospitals across India.",
     coverage: "₹1 Crore",
     startingFrom: "₹499/month",
-    href: "/insurance#health",
+    href: "/insurance/health-insurance",
     gradient: "from-red-500 to-rose-400",
     bgGradient: "from-red-500/10 to-rose-400/5",
     borderColor: "border-red-500/20",
@@ -30,7 +30,7 @@ const insuranceCategories = [
     description: "Complete protection for your car against accidents, theft, and natural disasters with zero depreciation.",
     coverage: "IDV + Add-ons",
     startingFrom: "₹2,094/year",
-    href: "/insurance#car",
+    href: "/insurance/car-insurance",
     gradient: "from-blue-500 to-cyan-400",
     bgGradient: "from-blue-500/10 to-cyan-400/5",
     borderColor: "border-blue-500/20",
@@ -43,7 +43,7 @@ const insuranceCategories = [
     description: "Affordable two-wheeler insurance with comprehensive and third-party options. Renew in 2 minutes.",
     coverage: "IDV Coverage",
     startingFrom: "₹555/year",
-    href: "/insurance#bike",
+    href: "/insurance/bike-insurance",
     gradient: "from-orange-500 to-amber-400",
     bgGradient: "from-orange-500/10 to-amber-400/5",
     borderColor: "border-orange-500/20",
@@ -56,7 +56,7 @@ const insuranceCategories = [
     description: "Secure your family's future with term plans and endowment policies from top insurers.",
     coverage: "₹5 Crore",
     startingFrom: "₹490/month",
-    href: "/insurance#life",
+    href: "/insurance/life-insurance",
     gradient: "from-emerald-500 to-teal-400",
     bgGradient: "from-emerald-500/10 to-teal-400/5",
     borderColor: "border-emerald-500/20",
@@ -69,33 +69,21 @@ const insuranceCategories = [
     description: "Worry-free travel with coverage for medical emergencies, trip cancellations, and lost baggage worldwide.",
     coverage: "$500K+",
     startingFrom: "₹45/day",
-    href: "/insurance#travel",
+    href: "/insurance/travel-insurance",
     gradient: "from-violet-500 to-purple-400",
     bgGradient: "from-violet-500/10 to-purple-400/5",
     borderColor: "border-violet-500/20",
     popular: false,
     features: ["Medical Emergency", "Trip Cancellation", "Lost Baggage Cover"],
   },
-  {
-    icon: Users,
-    title: "Family Insurance",
-    description: "One policy for your entire family with floater benefits, no-claim bonus, and maternity coverage.",
-    coverage: "₹50 Lakh",
-    startingFrom: "₹899/month",
-    href: "/insurance#family",
-    gradient: "from-pink-500 to-rose-400",
-    bgGradient: "from-pink-500/10 to-rose-400/5",
-    borderColor: "border-pink-500/20",
-    popular: false,
-    features: ["Family Floater", "Maternity Cover", "No-Claim Bonus"],
-  },
+ 
   {
     icon: Building2,
     title: "Business Insurance",
     description: "Protect your business from unforeseen risks, liability claims, and property damage with custom plans.",
     coverage: "Custom Plans",
     startingFrom: "Custom Quote",
-    href: "/insurance#business",
+    href: "/insurance/business-insurance",
     gradient: "from-slate-500 to-gray-400",
     bgGradient: "from-slate-500/10 to-gray-400/5",
     borderColor: "border-slate-500/20",
@@ -240,7 +228,7 @@ function InsuranceCard({ insurance, index }: { insurance: typeof insuranceCatego
                 `}
               >
                 <FileCheck className="w-4 h-4" />
-                Get Free Quote
+                Apply Now
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -305,7 +293,7 @@ export function InsuranceCategoriesSection() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
         >
           {[
-            { icon: BadgeCheck, label: "IRDAI Approved", sublabel: "Licensed Broker" },
+            
             { icon: Clock, label: "5 Min Purchase", sublabel: "Instant Policy" },
             { icon: ShieldCheck, label: "Zero Paperwork", sublabel: "100% Digital" },
             { icon: Phone, label: "24/7 Support", sublabel: "Claim Assistance" },

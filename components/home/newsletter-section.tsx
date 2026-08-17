@@ -17,7 +17,7 @@ const benefits = [
 ]
 
 const stats = [
-  { value: "10,000+", label: "Subscribers" },
+  { value: "Subscriber", label: "" },
   { value: "4.9★", label: "Rated" },
   { value: "Weekly", label: "Updates" },
 ]
@@ -127,7 +127,7 @@ export function NewsletterSection() {
             transition={{ delay: 0.3 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
           >
-            Join 10,000+ Smart Indians Getting{" "}
+            Join Us, Smart Indians Getting{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
                 Financial Edge
