@@ -90,8 +90,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹500Cr+", label: "Business Loans Given" },
-  { value: "10,000+", label: "MSMEs Funded" },
+  
   { value: "24hrs", label: "Fastest Disbursal" },
   { value: "0%", label: "Collateral Required" },
 ]
@@ -171,7 +170,7 @@ export default function BusinessLoanPage() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-sm text-slate-400 mt-0.5">Trusted by 10,000+ Businesses</p>
+                    <p className="text-sm text-slate-400 mt-0.5">Trusted by Businesses</p>
                   </div>
                 </div>
               </div>

@@ -87,8 +87,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹2,000Cr+", label: "Gold Loans Disbursed" },
-  { value: "1,00,000+", label: "Customers Served" },
+  
   { value: "30 Mins", label: "Fastest Disbursal" },
   { value: "100%", label: "Insured Vaults" },
 ]
@@ -167,7 +166,7 @@ export default function GoldLoanPage() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-sm text-slate-400 mt-0.5">Trusted by 1,00,000+ Customers</p>
+                    <p className="text-sm text-slate-400 mt-0.5">Trusted by Customers</p>
                   </div>
                 </div>
               </div>

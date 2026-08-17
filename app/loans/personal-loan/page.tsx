@@ -90,8 +90,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹1,500Cr+", label: "Personal Loans Given" },
-  { value: "1,00,000+", label: "Customers Served" },
+  
   { value: "2 Hours", label: "Fastest Disbursal" },
   { value: "0%", label: "Collateral Required" },
 ]
@@ -167,7 +166,7 @@ export default function PersonalLoanPage() {
                         <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">Trusted by 1,00,000+ Customers</p>
+                    <p className="text-xs sm:text-sm text-slate-400 mt-0.5">Trusted by Customers</p>
                   </div>
                 </div>
               </div>

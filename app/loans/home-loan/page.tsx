@@ -57,8 +57,7 @@ const faqs = [
 ]
 
 const stats = [
-  { value: "₹2,500Cr+", label: "Loans Disbursed" },
-  { value: "50,000+", label: "Happy Families" },
+ 
   { value: "4.9/5", label: "Customer Rating" },
   { value: "15+", label: "Bank Partners" },
 ]
@@ -201,7 +200,7 @@ export default function HomeLoanPage() {
                   key={idx} 
                   className="group bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 text-center shadow-lg shadow-slate-100/50 card-lift hover:border-blue-100"
                 >
-                  <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-gradient-blue mb-1">{stat.value}</p>
+                  <p className="text-2xl sm:text-xl lg:text-2xl font-black text-gradient-blue mb-1">{stat.value}</p>
                   <p className="text-[11px] sm:text-xs text-slate-500 uppercase tracking-wider font-semibold">{stat.label}</p>
                 </div>
               ))}
