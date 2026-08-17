@@ -32,7 +32,7 @@ const features = [
   {
     icon: FileCheck,
     title: "Paperless Process",
-    description: "Complete digital KYC with Aadhaar e-sign. Upload documents via WhatsApp. No branch visits needed.",
+    description: "Complete digital KYC with [Aadhaar Redacted] e-sign. Upload documents via WhatsApp. No branch visits needed.",
     stat: "100%",
     statLabel: "Digital",
     gradient: "from-blue-500 to-cyan-500",
@@ -63,13 +63,12 @@ const features = [
     stat: "✓",
     statLabel: "Customers",
     gradient: "from-indigo-500 to-blue-500",
-    bgGradient: "from-indigo-500/10 to-blue-500/5",
+    bgGradient: "from-indigo-500/10 to-indigo-500/5",
   },
 ]
 
 const trustBadges = [
   { icon: Shield, label: "Channel partner", color: "text-emerald-500" },
-  
   { icon: Star, label: "4.9/5 Rating", color: "text-amber-500" },
   { icon: Users, label: "500+ Partners", color: "text-violet-500" },
 ]
@@ -164,6 +163,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       style={{ perspective: 1000 }}
+      className="w-full"
     >
       <motion.div
         ref={ref}
@@ -173,7 +173,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
         className="group relative h-full"
       >
         <div className={`
-          relative h-full p-6 lg:p-7 rounded-3xl bg-card border border-border/50
+          relative h-full p-5 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-card border border-border/50
           hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500
           overflow-hidden
         `}>
@@ -186,10 +186,10 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 + index * 0.1, type: "spring" }}
-            className="absolute top-4 right-4 z-10"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10"
           >
             <div className={`
-              px-3 py-1.5 rounded-full bg-gradient-to-r ${feature.gradient} text-white text-xs font-bold shadow-lg
+              px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-gradient-to-r ${feature.gradient} text-white text-[11px] sm:text-xs font-bold shadow-lg
             `}>
               <AnimatedCounter value={feature.stat} />
             </div>
@@ -201,30 +201,30 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
               whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
               transition={{ duration: 0.5 }}
               className={`
-                w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient}
-                flex items-center justify-center mb-5 shadow-lg
+                w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${feature.gradient}
+                flex items-center justify-center mb-4 sm:mb-5 shadow-lg
                 group-hover:shadow-xl transition-shadow
               `}
             >
-              <feature.icon className="w-7 h-7 text-white" />
+              <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
             </motion.div>
 
-            <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+            <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors">
               {feature.title}
             </h3>
             
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">
               {feature.description}
             </p>
 
-            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-muted-foreground">
               <TrendingUp className="w-3.5 h-3.5 text-green-500" />
               <span>{feature.statLabel}</span>
             </div>
           </div>
 
           {/* Hover Glow */}
-          <div className={`absolute -inset-px rounded-3xl bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 -z-10`} />
+          <div className={`absolute -inset-px rounded-2xl sm:rounded-3xl bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 -z-10`} />
         </div>
       </motion.div>
     </motion.div>
@@ -233,15 +233,15 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
 
 export function WhyChooseUsSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-background overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-32 bg-background overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-secondary/5 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-[100px] sm:blur-[120px]" />
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 sm:w-96 sm:h-96 bg-secondary/5 rounded-full blur-[100px] sm:blur-[120px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-start">
           
           {/* Left Content - Sticky on Desktop */}
           <motion.div
@@ -256,26 +256,26 @@ export function WhyChooseUsSection() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/15 border border-primary/20 text-primary text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
             >
               <Award className="w-4 h-4" />
               Why Choose KalyaniFinance
             </motion.div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-              India's Most Trusted{" "}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
+              India&apos;s Most Trusted{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Financial Partner
               </span>
             </h2>
 
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              We don't just process loans — we build relationships. With direct partnerships 
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+              We don&apos;t just process loans — we build relationships. With direct partnerships 
               across 25+ banks and NBFCs, we ensure you get the best rates with zero hassle.
             </p>
 
             {/* Comparison Points */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
               {comparisonPoints.map((point, index) => (
                 <motion.div
                   key={point}
@@ -283,12 +283,12 @@ export function WhyChooseUsSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-2.5 sm:gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500" />
                   </div>
-                  <span className="text-sm text-foreground font-medium">{point}</span>
+                  <span className="text-xs sm:text-sm text-foreground font-medium">{point}</span>
                 </motion.div>
               ))}
             </div>
@@ -299,15 +299,15 @@ export function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-2 gap-3 mb-8"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6 sm:mb-8"
             >
               {trustBadges.map((badge) => (
                 <div 
                   key={badge.label}
-                  className="flex items-center gap-2.5 p-3 rounded-xl bg-card border border-border/50 hover:border-primary/20 transition-colors"
+                  className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-xl bg-card border border-border/50 hover:border-primary/25 transition-colors"
                 >
-                  <badge.icon className={`w-5 h-5 ${badge.color}`} />
-                  <span className="text-sm font-semibold text-foreground">{badge.label}</span>
+                  <badge.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${badge.color}`} />
+                  <span className="text-xs sm:text-sm font-semibold text-foreground">{badge.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -318,8 +318,9 @@ export function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
+              className="w-full sm:w-auto"
             >
-              <Button size="lg" asChild className="gap-2 px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-0.5">
+              <Button size="lg" asChild className="w-full sm:w-auto gap-2 px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-0.5">
                 <Link href="/contact">
                   Start Your Application
                   <ArrowRight className="w-5 h-5" />
@@ -329,7 +330,7 @@ export function WhyChooseUsSection() {
           </motion.div>
 
           {/* Right - Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {features.map((feature, index) => (
               <FeatureCard key={feature.title} feature={feature} index={index} />
             ))}
@@ -342,24 +343,23 @@ export function WhyChooseUsSection() {
               transition={{ delay: 0.8 }}
               className="sm:col-span-2"
             >
-              <div className="relative p-6 rounded-3xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+              <div className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                 
                 <div className="relative flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-center sm:text-left">
-                    <h3 className="text-lg font-bold text-foreground mb-1">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground">
                       Still have questions?
                     </h3>
-                  
                   </div>
-                  <Button asChild variant="outline" className="gap-2 border-2 hover:bg-primary hover:text-white transition-all">
+                  <Button asChild variant="outline" className="w-full sm:w-auto gap-2 border-2 hover:bg-primary hover:text-white transition-all text-xs sm:text-sm">
                     <Link
-    href="tel:+917620838449"
-    className="flex items-center gap-2"
-  >
-    <Phone className="w-5 h-5" />
-    <span>Talk to our experts — it's completely free</span>
-  </Link>
+                      href="tel:+917620838449"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Talk to our experts — it&apos;s completely free</span>
+                    </Link>
                   </Button>
                 </div>
               </div>

@@ -223,7 +223,7 @@ export function HeroSection() {
                 className="gap-2 text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Link href="/contact">
-                  Apply Now — It's Free
+                  Apply Now — It&apos;s Free
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
@@ -272,7 +272,7 @@ export function HeroSection() {
               className="mt-10 pt-8 border-t border-border/50"
             >
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 font-medium">
-                Associated with India's Leading Banks
+                Associated with India&apos;s Leading Banks
               </p>
               <div className="flex flex-wrap gap-6 items-center opacity-60">
                 {trustLogos.map((logo) => (
@@ -292,7 +292,7 @@ export function HeroSection() {
             className="relative lg:pl-8"
           >
             <TiltCard className="relative">
-              <div className="relative bg-card/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-border/50 p-8 lg:p-10 overflow-hidden">
+              <div className="relative bg-card/85 backdrop-blur-xl rounded-3xl shadow-2xl border border-border/50 p-8 lg:p-10 overflow-hidden">
                 {/* Glow Effects */}
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/30 rounded-full blur-[80px]" />
                 <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary/30 rounded-full blur-[80px]" />
@@ -391,8 +391,6 @@ export function HeroSection() {
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-   
-   
     </section>
   )
 }
