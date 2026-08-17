@@ -20,7 +20,7 @@ const categories = [
 const faqs = [
   {
     question: "What documents are required for a loan application?",
-    answer: "For most loans, you need identity proof (Aadhar/PAN), address proof, income proof (salary slips/ITR), bank statements for the last 6 months, and passport-size photographs. For specific loan types like home or car loans, additional documents like property papers or vehicle quotation may be required. Our team helps you prepare everything.",
+    answer: "For most loans, you need identity proof ([Aadhaar Redacted]/PAN), address proof, income proof (salary slips/ITR), bank statements for the last 6 months, and passport-size photographs. For specific loan types like home or car loans, additional documents like property papers or vehicle quotation may be required. Our team helps you prepare everything.",
     category: "loans",
     popular: true,
   },
@@ -109,6 +109,7 @@ function FaqItem({ faq, index, isOpen, onToggle }: {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       style={{ perspective: 1000 }}
+      className="w-full"
     >
       <motion.div
         ref={ref}
@@ -119,19 +120,19 @@ function FaqItem({ faq, index, isOpen, onToggle }: {
         <button
           onClick={onToggle}
           className={`
-            w-full text-left rounded-2xl border transition-all duration-300 group
+            w-full text-left rounded-xl sm:rounded-2xl border transition-all duration-300 group
             ${isOpen 
               ? 'bg-card border-primary/30 shadow-lg shadow-primary/5' 
               : 'bg-card/50 border-border/50 hover:border-primary/20 hover:bg-card hover:shadow-md'
             }
           `}
         >
-          <div className="p-5 lg:p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-4 flex-1">
+          <div className="p-4 sm:p-5 lg:p-6">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
+              <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
                 {/* Number Badge */}
                 <div className={`
-                  w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 mt-0.5
+                  w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[11px] sm:text-xs font-bold shrink-0 mt-0.5
                   transition-all duration-300
                   ${isOpen 
                     ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
@@ -141,13 +142,13 @@ function FaqItem({ faq, index, isOpen, onToggle }: {
                   {String(index + 1).padStart(2, '0')}
                 </div>
                 
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className={`font-semibold pr-4 transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <h3 className={`font-semibold text-xs sm:text-sm lg:text-base pr-2 transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
                       {faq.question}
                     </h3>
                     {faq.popular && (
-                      <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 text-[10px] font-bold uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
                         <Sparkles className="w-3 h-3" />
                         Popular
                       </span>
@@ -163,17 +164,17 @@ function FaqItem({ faq, index, isOpen, onToggle }: {
                         transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                         className="overflow-hidden"
                       >
-                        <p className="text-muted-foreground leading-relaxed mt-3 text-sm">
+                        <p className="text-muted-foreground leading-relaxed mt-2.5 sm:mt-3 text-xs sm:text-sm">
                           {faq.answer}
                         </p>
                         
                         {/* Related CTA */}
-                        <div className="mt-4 pt-4 border-t border-border/50">
+                        <div className="mt-3.5 sm:mt-4 pt-3.5 sm:pt-4 border-t border-border/50">
                           <Link 
                             href="/contact" 
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-2 transition-all"
+                            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-primary hover:gap-2 transition-all"
                           >
-                            <MessageCircle className="w-4 h-4" />
+                            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                             Ask a follow-up question
                             <ArrowRight className="w-3 h-3" />
                           </Link>
@@ -189,14 +190,14 @@ function FaqItem({ faq, index, isOpen, onToggle }: {
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
                 className={`
-                  w-8 h-8 rounded-full shrink-0 flex items-center justify-center transition-colors
+                  w-7 h-7 sm:w-8 sm:h-8 rounded-full shrink-0 flex items-center justify-center transition-colors
                   ${isOpen 
                     ? 'bg-primary text-primary-foreground shadow-lg' 
                     : 'bg-accent text-foreground group-hover:bg-primary/10 group-hover:text-primary'
                   }
                 `}
               >
-                {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                {isOpen ? <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
               </motion.div>
             </div>
           </div>
@@ -228,43 +229,43 @@ export function FaqSection() {
     : faqs.filter(f => f.category === activeCategory)
 
   return (
-    <section className="relative py-24 lg:py-32 bg-background overflow-hidden">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-background overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-[100px] sm:blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-secondary/5 rounded-full blur-[100px] sm:blur-[120px]" />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-semibold mb-4 sm:mb-6"
           >
-            <HelpCircle className="w-4 h-4" />
+            <HelpCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Got Questions?
           </motion.div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 px-2">
             Frequently Asked{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               Questions
             </span>
           </h2>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Everything you need to know about our loan and insurance services. 
-            Can't find your answer? Our experts are just a call away.
+            Can&apos;t find your answer? Our experts are just a call away.
           </p>
         </motion.div>
 
@@ -274,7 +275,7 @@ export function FaqSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-2 mb-10"
+          className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10 px-2"
         >
           {categories.map((cat) => (
             <button
@@ -284,14 +285,14 @@ export function FaqSection() {
                 setOpenIndex(0)
               }}
               className={`
-                flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
+                flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300
                 ${activeCategory === cat.id
                   ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25'
                   : 'bg-card border border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground'
                 }
               `}
             >
-              <cat.icon className="w-4 h-4" />
+              <cat.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               {cat.label}
             </button>
           ))}
@@ -303,18 +304,18 @@ export function FaqSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="grid grid-cols-3 gap-3 mb-10"
+          className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-8 sm:mb-10"
         >
           {[
             { icon: Clock, label: "Avg. Response", value: "2 Min" },
             { icon: BadgeCheck, label: "Accuracy", value: "100%" },
             { icon: Phone, label: "Expert Support", value: "24/7" },
           ].map((stat) => (
-            <div key={stat.label} className="flex items-center justify-center gap-2 p-3 rounded-xl bg-card border border-border/50">
-              <stat.icon className="w-4 h-4 text-primary" />
-              <div className="text-left">
-                <div className="text-xs font-bold text-foreground">{stat.value}</div>
-                <div className="text-[10px] text-muted-foreground">{stat.label}</div>
+            <div key={stat.label} className="flex items-center justify-center gap-2 p-2.5 sm:p-3 rounded-xl bg-card border border-border/50 text-center sm:text-left">
+              <stat.icon className="w-4 h-4 text-primary shrink-0 hidden sm:block" />
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-foreground">{stat.value}</div>
+                <div className="text-[9px] sm:text-[10px] text-muted-foreground">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -341,31 +342,31 @@ export function FaqSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-12"
+          className="mt-10 sm:mt-12"
         >
-          <div className="relative p-8 rounded-3xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/10 overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+          <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/10 overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
             
-            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6">
               <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                  <MessageCircle className="w-5 h-5 text-primary" />
-                  <h3 className="text-lg font-bold text-foreground">Still have questions?</h3>
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-1.5 sm:mb-2">
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary shrink-0" />
+                  <h3 className="text-base sm:text-lg font-bold text-foreground">Still have questions?</h3>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Our loan experts are available 24/7 to answer your specific questions. 
                   Get personalized advice — completely free.
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild variant="outline" className="gap-2 border-2 hover:bg-primary hover:text-white transition-all">
-                  <Link href="tel:+919999999999">
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full lg:w-auto">
+                <Button asChild variant="outline" className="w-full sm:w-auto gap-2 border-2 hover:bg-primary hover:text-white transition-all text-xs sm:text-sm">
+                  <Link href="tel:+917620838449">
                     <Phone className="w-4 h-4" />
                     Call Now
                   </Link>
                 </Button>
-                <Button asChild className="gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
+                <Button asChild className="w-full sm:w-auto gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all text-xs sm:text-sm">
                   <Link href="/contact">
                     <MessageCircle className="w-4 h-4" />
                     WhatsApp Us
