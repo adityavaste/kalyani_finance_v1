@@ -12,10 +12,12 @@ import { BlogPreviewSection } from "@/components/home/blog-preview-section"
 import { ContactFormSection } from "@/components/home/contact-form-section"
 import { NewsletterSection } from "@/components/home/newsletter-section"
 import { PartnersSection } from "@/components/home/partners-section"
+import SecurityAnnouncementBar from "@/components/home/SecurityAnnouncementBar"
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
+      <SecurityAnnouncementBar />
       <Navbar />
       <HeroSection />
       <PartnersSection />
